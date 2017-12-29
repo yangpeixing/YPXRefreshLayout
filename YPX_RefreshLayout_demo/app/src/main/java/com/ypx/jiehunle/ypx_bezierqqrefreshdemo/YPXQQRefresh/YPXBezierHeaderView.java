@@ -10,9 +10,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
-import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
@@ -20,12 +18,11 @@ import android.view.View;
 import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.R;
 import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.util.ScreenUtils;
 
-
 /**
  * 作者：yangpeixing on 16/9/6 15:14
  * 博客主页：http://blog.csdn.net/qq_16674697?viewmode=list
  */
-    public class YPXBezierView extends View {
+    public class YPXBezierHeaderView extends View {
     /**
      * 圆的画笔
      */
@@ -61,7 +58,7 @@ import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.util.ScreenUtils;
 
     float lastY;
 
-    int color=Color.parseColor("#999999");
+    int color= Color.parseColor("#999999");
     int drawableID= R.mipmap.refresh;
 
     OnAnimResetListener listener;
@@ -77,22 +74,22 @@ import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.util.ScreenUtils;
         this.listener=lt;
     }
 
-    public YPXBezierView(Context context) {
+    public YPXBezierHeaderView(Context context) {
         this(context, null);
     }
 
-    public YPXBezierView(Context context, AttributeSet attrs) {
+    public YPXBezierHeaderView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public YPXBezierView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public YPXBezierHeaderView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
 
     protected void init() {
         maxHeight=dp(300);
-        topCircleX=ScreenUtils.getScreenWidth(getContext())/2;
+        topCircleX= ScreenUtils.getScreenWidth(getContext())/2;
         topCircleY=dp(100);
         topCircleRadius=dp(30);
         resetBottomCricle();

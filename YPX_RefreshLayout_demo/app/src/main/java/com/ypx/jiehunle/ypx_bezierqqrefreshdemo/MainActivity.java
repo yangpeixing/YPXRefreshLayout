@@ -10,6 +10,12 @@ import android.util.TypedValue;
 
 
 import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.YPXNetEaseIndicator.NetEaseIndicator;
+import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.fragments.GridViewFragment;
+import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.fragments.ListViewFragment;
+import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.fragments.NormalRefreshFragment;
+import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.fragments.RecyclerViewFragment;
+import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.fragments.ScrollViewFragment;
+import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.fragments.WebViewFragment;
 
 
 import java.util.ArrayList;

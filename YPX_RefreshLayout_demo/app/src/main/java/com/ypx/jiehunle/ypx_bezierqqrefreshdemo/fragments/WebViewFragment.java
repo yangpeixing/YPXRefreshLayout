@@ -1,7 +1,6 @@
-package com.ypx.jiehunle.ypx_bezierqqrefreshdemo;
+package com.ypx.jiehunle.ypx_bezierqqrefreshdemo.fragments;
 
 import android.annotation.SuppressLint;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -11,9 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.TextView;
 
-import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.YPXQQRefresh.QQRefreshView;
+import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.R;
+import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.YPXQQRefresh.YPXQQRefreshView;
 
 /**
  * Created by yangpeixing on 17/1/17.
@@ -21,7 +20,7 @@ import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.YPXQQRefresh.QQRefreshView;
 public class WebViewFragment extends Fragment{
     View view;
     WebView webView;
-    QQRefreshView refreshableView;
+    YPXQQRefreshView refreshableView;
     final int SUCCESS = 1;
     final int FAILED = 0;
     @SuppressLint("HandlerLeak")
@@ -49,7 +48,7 @@ public class WebViewFragment extends Fragment{
     }
 
     private void initView() {
-        refreshableView= (QQRefreshView) view.findViewById(R.id.refreshableView1);
+        refreshableView= (YPXQQRefreshView) view.findViewById(R.id.refreshableView1);
         webView= (WebView) view.findViewById(R.id.webView1);
         webView.loadUrl("http://blog.csdn.net/qq_16674697/article/details/54341455");
         //覆盖WebView默认使用第三方或系统默认浏览器打开网页的行为，使网页用WebView打开
@@ -64,7 +63,7 @@ public class WebViewFragment extends Fragment{
     }
 
     private void initData() {
-        refreshableView.setRefreshListener(new QQRefreshView.RefreshListener() {
+        refreshableView.setRefreshListener(new YPXQQRefreshView.RefreshListener() {
 
             @Override
             public void onRefresh() {

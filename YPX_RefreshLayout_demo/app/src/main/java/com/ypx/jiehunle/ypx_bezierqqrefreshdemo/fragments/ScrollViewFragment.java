@@ -1,4 +1,4 @@
-package com.ypx.jiehunle.ypx_bezierqqrefreshdemo;
+package com.ypx.jiehunle.ypx_bezierqqrefreshdemo.fragments;
 
 import android.annotation.SuppressLint;
 import android.graphics.Color;
@@ -14,14 +14,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.YPXQQRefresh.YPXRefreshView;
+import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.R;
+import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.YPXQQRefresh.YPXQQRefreshView;
 
 /**
- * 作者：yangpeixing on 17/1/19 11:14
- * 博客主页：http://blog.csdn.net/qq_16674697?viewmode=list
+ * Created by yangpeixing on 17/1/17.
  */
-public class NormalRefreshFragment extends Fragment {
-    YPXRefreshView refreshableView;
+public class ScrollViewFragment extends Fragment{
+    YPXQQRefreshView refreshableView;
     LinearLayout layout;
     final int SUCCESS = 1;
     final int FAILED = 0;
@@ -51,15 +51,31 @@ public class NormalRefreshFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view= LayoutInflater.from(getContext()).inflate(R.layout.fragment_normalrefresh,null);
+        view= LayoutInflater.from(getActivity()).inflate(R.layout.fragment_scrollview,null);
         initView();
         initData();
         return view;
     }
 
     private void initView() {
-        refreshableView = (YPXRefreshView) view.findViewById(R.id.refreshableView1);
+        refreshableView = (YPXQQRefreshView) view.findViewById(R.id.refreshableView1);
         layout = (LinearLayout) view.findViewById(R.id.ll_layout);
+        //设置是否可以刷新,默认可以刷新
+        refreshableView.setRefreshEnabled(true);
+        //设置刷新头的高度,此高度会决定小球的默认半径和坐标
+    /*   refreshableView.setRefreshViewHeight(refreshableView.dp(120));
+        //设置刷新颜色,默认颜色值#999999
+		refreshableView.setRefreshColor(Color.parseColor("#26B8F2"));
+		//设置刷新图标,默认刷新图标
+		refreshableView.setRefreshIcon(R.mipmap.ic_launcher);
+		//设置刷新球最大拉伸距离,默认为刷新头部高度
+		refreshableView.setRefreshMaxHeight(refreshableView.dp(150));
+		//设置刷新球半径,默认15dp
+		refreshableView.setTopCircleRadius(refreshableView.dp(30));
+		//设置刷新球圆心X值,默认屏宽一半
+		refreshableView.setTopCircleX(refreshableView.dp(50));
+		//设置刷新球圆心Y值,默认30dp
+		refreshableView.setTopCircleY(refreshableView.dp(30));  */
     }
 
     private void initData() {
@@ -78,7 +94,7 @@ public class NormalRefreshFragment extends Fragment {
             });
             layout.addView(textView);
         }
-        refreshableView.setRefreshListener(new YPXRefreshView.RefreshListener() {
+        refreshableView.setRefreshListener(new YPXQQRefreshView.RefreshListener() {
 
             @Override
             public void onRefresh() {

@@ -1,6 +1,5 @@
-package com.ypx.jiehunle.ypx_bezierqqrefreshdemo;
+package com.ypx.jiehunle.ypx_bezierqqrefreshdemo.fragments;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -9,16 +8,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.TextView;
 
-import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.YPXQQRefresh.QQRefreshView;
+import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.YPXQQRefresh.YPXQQRefreshView;
+import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.adapters.ListViewAdapter;
+import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.R;
 
 /**
  * Created by yangpeixing on 17/1/17.
  */
 public class ListViewFragment extends Fragment {
     View view;
-    QQRefreshView refreshableView;
+    YPXQQRefreshView refreshableView;
     ListView listView;
     ListViewAdapter adapter;
     final int SUCCESS = 1;
@@ -48,7 +48,7 @@ public class ListViewFragment extends Fragment {
     }
 
     private void initView() {
-        refreshableView = (QQRefreshView) view.findViewById(R.id.refreshableView1);
+        refreshableView = (YPXQQRefreshView) view.findViewById(R.id.refreshableView1);
         listView= (ListView) view.findViewById(R.id.listView1);
         adapter=new ListViewAdapter(getActivity());
         listView.setAdapter(adapter);
@@ -69,7 +69,7 @@ public class ListViewFragment extends Fragment {
     }
 
     private void initData() {
-        refreshableView.setRefreshListener(new QQRefreshView.RefreshListener() {
+        refreshableView.setRefreshListener(new YPXQQRefreshView.RefreshListener() {
 
             @Override
             public void onRefresh() {

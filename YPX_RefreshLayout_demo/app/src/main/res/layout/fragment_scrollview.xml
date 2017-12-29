@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.ypx.jiehunle.ypx_bezierqqrefreshdemo.YPXQQRefresh.QQRefreshView
+    <com.ypx.jiehunle.ypx_bezierqqrefreshdemo.YPXQQRefresh.YPXQQRefreshView
         android:id="@+id/refreshableView1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -24,6 +24,6 @@
                 android:orientation="vertical" >
             </LinearLayout>
         </ScrollView>
-    </com.ypx.jiehunle.ypx_bezierqqrefreshdemo.YPXQQRefresh.QQRefreshView>
+    </com.ypx.jiehunle.ypx_bezierqqrefreshdemo.YPXQQRefresh.YPXQQRefreshView>
 
 </RelativeLayout>

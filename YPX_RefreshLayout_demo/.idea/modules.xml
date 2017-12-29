@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/YPX_BezierQQRefreshDemo.iml" filepath="$PROJECT_DIR$/YPX_BezierQQRefreshDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/YPX_RefreshLayout_demo.iml" filepath="$PROJECT_DIR$/YPX_RefreshLayout_demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
