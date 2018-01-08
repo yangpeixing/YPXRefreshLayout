@@ -18,7 +18,7 @@ import android.widget.ScrollView;
 
 /**
  *
- * 功能: 下拉刷新基础类,
+ * 功能: 下拉刷新基础类
  *      继承该类实现三个抽象方法可以定制任何样式下拉刷新
  *
  * 作者：yangpeixing on 17/1/18 14:52
@@ -271,11 +271,7 @@ public abstract class YPXRefreshBaseView extends LinearLayout {
         View childView;
         if (getChildCount() > 1) {
             childView = this.getChildAt(1);
-            if(ViewCompat.canScrollVertically(childView,-1)){
-                return false;
-            }else {
-                return true;
-            }
+            return !ViewCompat.canScrollVertically(childView, -1);
         }
         return true;
     }
@@ -320,25 +316,7 @@ public abstract class YPXRefreshBaseView extends LinearLayout {
                     return false;
                 }
             }else if (childView instanceof RecyclerView) {
-                if(ViewCompat.canScrollVertically(childView,-1)){
-                    return false;
-                }else {
-                    return true;
-                }
-
-//                RecyclerView.LayoutManager manager=((RecyclerView)childView).getLayoutManager();
-//                int top=0;
-//                if(manager instanceof LinearLayoutManager){
-//                    top = ((LinearLayoutManager)manager).findFirstVisibleItemPosition();
-//                }else  if(manager instanceof StaggeredGridLayoutManager){
-//                    top = ((StaggeredGridLayoutManager)manager).findFirstVisibleItemPositions(null)[0];
-//                }
-//
-//                if(((RecyclerView)childView).getChildAt(0).getY()==0 &&top==0){
-//                    return true;
-//                } else {
-//                    return false;
-//                }
+                return !ViewCompat.canScrollVertically(childView, -1);
             }
         }
         return true;
@@ -370,6 +348,11 @@ public abstract class YPXRefreshBaseView extends LinearLayout {
         refreshView.setLayoutParams(lp);
         refreshView.invalidate();
         pullDownToRefresh();
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        return refreshState == REFRESHING || super.dispatchTouchEvent(ev);
     }
 
     /**

@@ -14,7 +14,7 @@ import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.R;
  * Created by jiehunle on 17/1/17.
  */
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
-    Context context;
+    private Context context;
     public  RecyclerViewAdapter(Context context){
         this.context=context;
 

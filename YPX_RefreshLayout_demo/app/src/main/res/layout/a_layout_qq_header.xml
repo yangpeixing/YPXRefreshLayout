@@ -2,8 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center|top"
-    android:background="#ffffff">
+    android:background="#ffffff"
+    android:gravity="center|top">
 
     <LinearLayout
         android:id="@+id/ll_ok"
@@ -26,9 +26,9 @@
             android:layout_marginLeft="10dp"
             android:gravity="center"
             android:text="刷新成功"
-            android:textSize="14sp"
             android:textAppearance="?android:attr/textAppearance"
             android:textColor="#999999"
+            android:textSize="14sp"
             android:textStyle="bold" />
     </LinearLayout>
 
@@ -37,6 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center|top">
+
         <ProgressBar
             android:id="@+id/pb_refresh"
             style="?android:attr/progressBarStyleSmall"
@@ -46,7 +47,8 @@
             android:layout_gravity="center"
             android:indeterminate="true"
             android:visibility="gone" />
-        <com.wedding.app.widget.QQRefresh.YPXBezierHeaderView
+
+        <com.ypx.jiehunle.ypx_bezierqqrefreshdemo.YPXQQRefresh.YPXBezierHeaderView
             android:id="@+id/bview"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

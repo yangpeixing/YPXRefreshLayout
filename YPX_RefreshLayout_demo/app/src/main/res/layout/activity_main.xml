@@ -1,5 +1,4 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
@@ -13,13 +12,10 @@
         android:overScrollMode="never"
         android:scrollbars="none">
 
-        <com.ypx.jiehunle.ypx_bezierqqrefreshdemo.YPXNetEaseIndicator.NetEaseIndicator
+        <com.ypx.jiehunle.ypx_bezierqqrefreshdemo.YPXNetEaseIndicator.YPXTabIndicator
             android:id="@+id/netEaseIndicator2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="6dp">
-
-        </com.ypx.jiehunle.ypx_bezierqqrefreshdemo.YPXNetEaseIndicator.NetEaseIndicator>
+            android:layout_height="wrap_content" />
     </HorizontalScrollView>
 
     <View
