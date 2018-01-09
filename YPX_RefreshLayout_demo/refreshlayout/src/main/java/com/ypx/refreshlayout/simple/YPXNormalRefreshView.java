@@ -3,7 +3,6 @@ package com.ypx.refreshlayout.simple;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.RotateAnimation;
@@ -14,8 +13,10 @@ import android.widget.TextView;
 
 import com.ypx.refreshlayout.R;
 import com.ypx.refreshlayout.YPXRefreshBaseView;
-import com.ypx.refreshlayout.util.DateUtils;
-import com.ypx.refreshlayout.util.SPUtil;
+import com.ypx.refreshlayout.util.TimeSPUtil;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 /**
@@ -102,7 +103,6 @@ public class YPXNormalRefreshView extends YPXRefreshBaseView {
         iv_refresh.startAnimation(anim1);
         pb_refresh.setVisibility(View.GONE);
         iv_refresh.setVisibility(View.VISIBLE);
-        Log.i("下拉刷新", "下拉刷新");
     }
 
     /**
@@ -125,7 +125,6 @@ public class YPXNormalRefreshView extends YPXRefreshBaseView {
         iv_refresh.startAnimation(anim1);
         pb_refresh.setVisibility(View.GONE);
         iv_refresh.setVisibility(View.VISIBLE);
-        Log.i("松开刷新", "松开刷新");
     }
 
     /**
@@ -138,8 +137,8 @@ public class YPXNormalRefreshView extends YPXRefreshBaseView {
         ll_ok.setVisibility(View.GONE);
         tv_tip.setText("正在刷新...");
         getRefreshTime();
-        SPUtil.getInstance(mContext).setRefreshTime("MyMobile", "" +
-                DateUtils.getDate(DateUtils.MM_DD_HH_MM, System.currentTimeMillis()));
+        TimeSPUtil.getInstance(mContext).setRefreshTime("MyMobile", "" +
+                getDate( "MM-dd HH:mm", System.currentTimeMillis()));
         iv_refresh.clearAnimation();
         iv_refresh.setVisibility(View.GONE);
         pb_refresh.setVisibility(View.VISIBLE);
@@ -171,7 +170,7 @@ public class YPXNormalRefreshView extends YPXRefreshBaseView {
 
 
     public void getRefreshTime() {
-        String time = SPUtil.getInstance(mContext).getRefreshTime("MyMobile");
+        String time = TimeSPUtil.getInstance(mContext).getRefreshTime("MyMobile");
         if (time == null || "".equals(time)) {
             tv_time.setVisibility(View.GONE);
         } else {
@@ -179,4 +178,11 @@ public class YPXNormalRefreshView extends YPXRefreshBaseView {
             tv_time.setText(String.format("上次刷新:%s", time));
         }
     }
+
+    public static String getDate(String formatStr, long times) {
+        Date date = new Date(times);// 获取当前日期对象
+        SimpleDateFormat format = new SimpleDateFormat(formatStr);// 设置格式
+        return format.format(date);
+    }
+
 }

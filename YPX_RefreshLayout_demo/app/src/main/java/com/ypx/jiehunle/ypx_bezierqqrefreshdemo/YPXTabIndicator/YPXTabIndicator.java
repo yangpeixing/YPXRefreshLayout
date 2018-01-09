@@ -10,16 +10,16 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.text.TextPaint;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import com.ypx.refreshlayout.util.ScreenUtils;
 
 
 /**
@@ -182,7 +182,7 @@ public class YPXTabIndicator extends LinearLayout implements
         defaultHeight = dp(44);
         titles = new String[]{"tab1", "tab2", "tab3"};
         tabLengthArray = new int[titles.length];
-        screenWidth = ScreenUtils.getScreenWidth(getContext());
+        screenWidth = getScreenWidth();
         initPaints();
         setBackgroundShape();
         refreshTabLayouts();
@@ -997,6 +997,19 @@ public class YPXTabIndicator extends LinearLayout implements
         if (onPageChangeListener != null) {
             onPageChangeListener.onPageSelected(arg0);
         }
+    }
+
+    /**
+     * 获得屏幕宽度
+     *
+     * @return 屏幕宽度
+     */
+    public int getScreenWidth() {
+        WindowManager wm = (WindowManager) getContext()
+                .getSystemService(Context.WINDOW_SERVICE);
+        DisplayMetrics outMetrics = new DisplayMetrics();
+        wm.getDefaultDisplay().getMetrics(outMetrics);
+        return outMetrics.widthPixels;
     }
 
 

@@ -1,9 +1,12 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'//添加
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+version = "1.0.0"
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "27.0.3"
+    buildToolsVersion "25.0.3"
 
     defaultConfig {
         minSdkVersion 16
@@ -22,6 +25,13 @@ android {
     }
 }
 
+allprojects {
+    tasks.withType(Javadoc) {
+        options.addStringOption('Xdoclint:none', '-quiet')
+        options.addStringOption('encoding', 'UTF-8')
+    }
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -31,12 +41,72 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
-//添加
-publish {
-    userOrg = 'yangpeixing'//bintray.com用户名
-    groupId = 'com.ypx'//jcenter上的路径
-    artifactId = 'refreshlayout'//项目名称
-    publishVersion = '1.0.0'//版本号
-    desc = '通用下拉刷新控件'//描述，不重要
-    website = 'https://github.com/yangpeixing/YPXRefreshLayout.git'//网站，不重要；尽量模拟github上的地址，例如我这样的；当然你有地址最好了
+def siteUrl = 'https://github.com/yangpeixing/YPXRefreshLayout'   // 项目的主页
+def gitUrl = 'https://github.com/yangpeixing/YPXRefreshLayout.git'   // Git仓库的url
+group = "com.ypx.refreshlayout"            // Maven Group ID for the artifact，
+install {
+    repositories.mavenInstaller {
+        // This generates POM.xml with proper parameters
+        pom {
+            project {
+                packaging 'aar'
+                name '通用下拉刷新组件，集成Base理论上可以实现主流百分之九十的下拉刷新'     //项目的描述 你可以多写一点
+                url siteUrl
+                // Set your license
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id 'ypx'        //填写的一些基本信息
+                        name 'ypx'
+                        email '15295035382@139.com'
+                    }
+                }
+                scm {
+                    connection gitUrl
+                    developerConnection gitUrl
+                    url siteUrl
+                }
+            }
+        }
+    }
 }
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+Properties properties = new Properties()
+//读取properties的配置信息，当然直接把信息写到代码里也是可以的
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+    configurations = ['archives']
+    pkg {
+        repo = "refreshLayout"          //这个应该是传到maven的仓库的名字
+        name = "refreshlayout"    //发布的项目名字
+        websiteUrl = siteUrl
+        vcsUrl = gitUrl
+        licenses = ["Apache-2.0"]
+        publish = true
+    }
+}
+
+

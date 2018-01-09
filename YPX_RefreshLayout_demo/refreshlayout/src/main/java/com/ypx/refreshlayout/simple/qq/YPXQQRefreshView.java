@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import com.ypx.refreshlayout.R;
 import com.ypx.refreshlayout.YPXRefreshBaseView;
-import com.ypx.refreshlayout.util.ScreenUtils;
 
 
 /**
@@ -102,7 +101,7 @@ public class YPXQQRefreshView extends YPXRefreshBaseView {
 
     private void resetData() {
         refreshMaxHeight = -refreshTargetTop;
-        topCircleX = ScreenUtils.getScreenWidth(mContext) / 2;
+        topCircleX = getScreenWidth() / 2;
         topCircleY = -refreshTargetTop / 2;
         topCircleRadius = -refreshTargetTop / 4;
         bezierView.setTopCircleX(topCircleX);

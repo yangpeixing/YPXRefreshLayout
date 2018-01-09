@@ -12,12 +12,13 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 
 import com.ypx.refreshlayout.R;
-import com.ypx.refreshlayout.util.ScreenUtils;
 
 /**
  * 作者：yangpeixing on 16/9/6 15:14
@@ -75,7 +76,7 @@ public class YPXBezierHeaderView extends View {
 
     protected void init() {
         maxHeight = dp(300);
-        topCircleX = ScreenUtils.getScreenWidth(getContext()) / 2;
+        topCircleX = getScreenWidth() / 2;
         topCircleY = dp(100);
         topCircleRadius = dp(30);
         resetBottomCricle();
@@ -324,6 +325,19 @@ public class YPXBezierHeaderView extends View {
     public int dp(int dp) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
                 dp, getContext().getResources().getDisplayMetrics());
+    }
+
+    /**
+     * 获得屏幕宽度
+     *
+     * @return  屏幕宽度
+     */
+    public int getScreenWidth() {
+        WindowManager wm = (WindowManager) getContext()
+                .getSystemService(Context.WINDOW_SERVICE);
+        DisplayMetrics outMetrics = new DisplayMetrics();
+        wm.getDefaultDisplay().getMetrics(outMetrics);
+        return outMetrics.widthPixels;
     }
 
     public interface OnAnimResetListener {
