@@ -9,9 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 
-import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.YPXQQRefresh.YPXQQRefreshView;
 import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.adapters.ListViewAdapter;
 import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.R;
+import com.ypx.refreshlayout.simple.qq.YPXQQRefreshView;
 
 /**
  * 作者：yangpeixing on 17/1/18 11:14

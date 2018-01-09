@@ -1,4 +1,4 @@
-package com.ypx.jiehunle.ypx_bezierqqrefreshdemo.YPXNetEaseIndicator;
+package com.ypx.jiehunle.ypx_bezierqqrefreshdemo.YPXTabIndicator;
 
 import android.content.Context;
 import android.database.DataSetObserver;

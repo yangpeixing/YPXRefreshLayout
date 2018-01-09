@@ -11,10 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.R;
-import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.YPXQQRefresh.YPXQQRefreshView;
 import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.adapters.RecyclerViewAdapter;
+import com.ypx.refreshlayout.simple.qq.YPXQQRefreshView;
 
 /**
+ *  RecyclerView
  * Created by yangpeixing on 17/1/17.
  */
 public class RecyclerViewFragment extends Fragment{

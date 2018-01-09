@@ -46,12 +46,13 @@
             android:layout_centerVertical="true"
             android:layout_gravity="center"
             android:indeterminate="true"
+            android:indeterminateDrawable="@drawable/pulling"
             android:visibility="gone" />
 
-        <com.ypx.jiehunle.ypx_bezierqqrefreshdemo.YPXQQRefresh.YPXBezierHeaderView
+        <com.ypx.refreshlayout.simple.qq.YPXBezierHeaderView
             android:id="@+id/bview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 </RelativeLayout>

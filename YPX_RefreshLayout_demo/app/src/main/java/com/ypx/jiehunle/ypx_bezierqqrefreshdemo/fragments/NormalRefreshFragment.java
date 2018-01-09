@@ -15,7 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.R;
-import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.YPXNormalRefresh.YPXNormalRefreshView;
+import com.ypx.refreshlayout.simple.YPXNormalRefreshView;
 
 /**
  * 作者：yangpeixing on 17/1/19 11:14

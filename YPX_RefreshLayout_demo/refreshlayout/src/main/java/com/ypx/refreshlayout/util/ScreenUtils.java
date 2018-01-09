@@ -1,4 +1,4 @@
-package com.ypx.jiehunle.ypx_bezierqqrefreshdemo.util;
+package com.ypx.refreshlayout.util;
 
 import android.app.Activity;
 import android.content.Context;

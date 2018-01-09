@@ -1,4 +1,4 @@
-package com.ypx.jiehunle.ypx_bezierqqrefreshdemo.YPXQQRefresh;
+package com.ypx.refreshlayout.simple.qq;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -9,9 +9,9 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.R;
-import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.YPXRefreshBaseView;
-import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.util.ScreenUtils;
+import com.ypx.refreshlayout.R;
+import com.ypx.refreshlayout.YPXRefreshBaseView;
+import com.ypx.refreshlayout.util.ScreenUtils;
 
 
 /**
@@ -84,7 +84,7 @@ public class YPXQQRefreshView extends YPXRefreshBaseView {
                 bezierView.setTopCircleRadius((float) (bezierView.getDefaultRadius() * (Math.pow(offset, 1 / 3.0))));
             } else {//小球爆炸收回,触发刷新
                 if (!bezierLock && takeBackState != TAKEBACK_ALL) {
-                    bezierView.animToReset(bezierLock);
+                    bezierView.animToReset(false);
                     refreshState = REFRESH_BY_RELEASE;//松开刷新状态
                     bezierLock = true;
                 }
@@ -94,7 +94,7 @@ public class YPXQQRefreshView extends YPXRefreshBaseView {
     }
 
     @Override
-    protected void fling(LinearLayout.LayoutParams lp) {
+    protected void doMoveUp(LinearLayout.LayoutParams lp) {
         bezierView.setTopCircleRadius(topCircleRadius);
         bezierView.resetBottomCricle();
         animRefreshView(500, TAKEBACK_ALL);

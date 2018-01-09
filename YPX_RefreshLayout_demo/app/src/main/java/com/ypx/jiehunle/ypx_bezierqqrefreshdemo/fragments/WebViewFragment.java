@@ -12,9 +12,10 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.R;
-import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.YPXQQRefresh.YPXQQRefreshView;
+import com.ypx.refreshlayout.simple.qq.YPXQQRefreshView;
 
 /**
+ * WebView
  * Created by yangpeixing on 17/1/17.
  */
 public class WebViewFragment extends Fragment{

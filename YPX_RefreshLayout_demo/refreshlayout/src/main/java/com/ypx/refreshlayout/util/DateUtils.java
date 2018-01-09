@@ -1,4 +1,4 @@
-package com.ypx.jiehunle.ypx_bezierqqrefreshdemo.util;
+package com.ypx.refreshlayout.util;
 
 import android.annotation.SuppressLint;
 import android.text.TextUtils;

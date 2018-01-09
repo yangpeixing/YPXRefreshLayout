@@ -1,4 +1,4 @@
-package com.ypx.jiehunle.ypx_bezierqqrefreshdemo.YPXNetEaseIndicator;
+package com.ypx.jiehunle.ypx_bezierqqrefreshdemo.YPXTabIndicator;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -19,7 +19,7 @@ import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.util.ScreenUtils;
+import com.ypx.refreshlayout.util.ScreenUtils;
 
 
 /**

@@ -9,11 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.YPXQQRefresh.YPXQQRefreshView;
 import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.adapters.ListViewAdapter;
 import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.R;
+import com.ypx.refreshlayout.simple.qq.YPXQQRefreshView;
 
 /**
+ * ListView
  * Created by yangpeixing on 17/1/17.
  */
 public class ListViewFragment extends Fragment {

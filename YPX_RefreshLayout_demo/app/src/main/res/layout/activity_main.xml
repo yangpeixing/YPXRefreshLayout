@@ -12,7 +12,7 @@
         android:overScrollMode="never"
         android:scrollbars="none">
 
-        <com.ypx.jiehunle.ypx_bezierqqrefreshdemo.YPXNetEaseIndicator.YPXTabIndicator
+        <com.ypx.jiehunle.ypx_bezierqqrefreshdemo.YPXTabIndicator.YPXTabIndicator
             android:id="@+id/netEaseIndicator2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />

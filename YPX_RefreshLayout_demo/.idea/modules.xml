@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/YPX_RefreshLayout_demo.iml" filepath="$PROJECT_DIR$/YPX_RefreshLayout_demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/refreshlayout/refreshlayout.iml" filepath="$PROJECT_DIR$/refreshlayout/refreshlayout.iml" />
     </modules>
   </component>
 </project>

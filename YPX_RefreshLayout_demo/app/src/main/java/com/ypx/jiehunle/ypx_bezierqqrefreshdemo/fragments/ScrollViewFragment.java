@@ -15,9 +15,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.R;
-import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.YPXQQRefresh.YPXQQRefreshView;
+import com.ypx.refreshlayout.simple.qq.YPXQQRefreshView;
 
 /**
+ * ScrollView
  * Created by yangpeixing on 17/1/17.
  */
 public class ScrollViewFragment extends Fragment{

@@ -8,7 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.TypedValue;
 
-import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.YPXNetEaseIndicator.YPXTabIndicator;
+import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.YPXTabIndicator.YPXTabIndicator;
 import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.fragments.GridViewFragment;
 import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.fragments.ListViewFragment;
 import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.fragments.NormalRefreshFragment;
