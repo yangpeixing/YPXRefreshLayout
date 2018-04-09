@@ -175,6 +175,10 @@ public abstract class YPXRefreshBaseView extends LinearLayout {
             case MotionEvent.ACTION_UP:
                 moveUp();
                 break;
+
+            case MotionEvent.ACTION_CANCEL:
+                moveUp();
+                break;
         }
         return true;
     }
@@ -386,7 +390,7 @@ public abstract class YPXRefreshBaseView extends LinearLayout {
     /**
      * 获得屏幕宽度
      *
-     * @return  屏幕宽度
+     * @return 屏幕宽度
      */
     public int getScreenWidth() {
         WindowManager wm = (WindowManager) getContext()
