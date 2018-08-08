@@ -77,6 +77,9 @@ public abstract class YPXRefreshBaseView extends LinearLayout {
      */
     private boolean isRefreshEnabled = true;
 
+    private onRefreshStateChanged refreshStateChanged;
+    private onRefreshMoveEvent onRefreshMoveEvent;
+
 
     public YPXRefreshBaseView(Context context) {
         this(context, null);
@@ -143,6 +146,9 @@ public abstract class YPXRefreshBaseView extends LinearLayout {
                         lp.height = lp.height + (int) (cVal * (-refreshTargetTop - lp.height));
                         break;
                 }
+                if (onRefreshMoveEvent != null) {
+                    onRefreshMoveEvent.onMove(lp.topMargin);
+                }
                 refreshView.setLayoutParams(lp);
                 refreshView.invalidate();
                 invalidate();
@@ -201,6 +207,9 @@ public abstract class YPXRefreshBaseView extends LinearLayout {
         if (lastTop < refreshTargetTop) {
             return;
         }
+        if (onRefreshMoveEvent != null) {
+            onRefreshMoveEvent.onMove(lastTop);
+        }
         doMovement(lp, lastTop);
         refreshView.setLayoutParams(lp);
         refreshView.invalidate();
@@ -218,6 +227,9 @@ public abstract class YPXRefreshBaseView extends LinearLayout {
             return;
         }
         LayoutParams lp = (LayoutParams) refreshView.getLayoutParams();
+        if (onRefreshMoveEvent != null) {
+            onRefreshMoveEvent.onMoveUp();
+        }
         doMoveUp(lp);
     }
 
@@ -316,6 +328,9 @@ public abstract class YPXRefreshBaseView extends LinearLayout {
      */
     protected void pullDownToRefresh() {
         setRefreshState(REFRESH_BY_PULLDOWN);
+        if (refreshStateChanged != null) {
+            refreshStateChanged.pullDownToRefresh();
+        }
     }
 
     /**
@@ -323,6 +338,9 @@ public abstract class YPXRefreshBaseView extends LinearLayout {
      */
     protected void pullUpToRefresh() {
         setRefreshState(REFRESH_BY_RELEASE);
+        if (refreshStateChanged != null) {
+            refreshStateChanged.pullUpToRefresh();
+        }
     }
 
     /**
@@ -330,6 +348,9 @@ public abstract class YPXRefreshBaseView extends LinearLayout {
      */
     protected void refreshing() {
         setRefreshState(REFRESHING);
+        if (refreshStateChanged != null) {
+            refreshStateChanged.refreshing();
+        }
     }
 
     /**
@@ -411,6 +432,32 @@ public abstract class YPXRefreshBaseView extends LinearLayout {
          * 刷新回调
          */
         void onRefresh();
+    }
+
+    public void setRefreshStateChanged(onRefreshStateChanged refreshStateChanged) {
+        this.refreshStateChanged = refreshStateChanged;
+    }
+
+    public onRefreshMoveEvent getOnRefreshMoveEvent() {
+        return onRefreshMoveEvent;
+    }
+
+    public void setOnRefreshMoveEvent(onRefreshMoveEvent onRefreshMoveEvent) {
+        this.onRefreshMoveEvent = onRefreshMoveEvent;
+    }
+
+    public interface onRefreshStateChanged {
+        void pullDownToRefresh();
+
+        void pullUpToRefresh();
+
+        void refreshing();
+    }
+
+    public interface onRefreshMoveEvent {
+        void onMove(int move);
+
+        void onMoveUp();
     }
 
 }

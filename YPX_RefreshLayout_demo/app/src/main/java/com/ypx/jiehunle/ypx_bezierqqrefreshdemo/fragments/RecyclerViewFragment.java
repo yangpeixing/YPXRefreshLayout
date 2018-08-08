@@ -1,5 +1,6 @@
 package com.ypx.jiehunle.ypx_bezierqqrefreshdemo.fragments;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -26,6 +27,7 @@ public class RecyclerViewFragment extends Fragment{
     final int SUCCESS = 1;
     final int FAILED = 0;
 
+    @SuppressLint("HandlerLeak")
     Handler handler = new Handler() {
         public void handleMessage(android.os.Message msg) {
             switch (msg.what) {
