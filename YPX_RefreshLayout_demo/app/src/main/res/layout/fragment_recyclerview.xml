@@ -15,7 +15,18 @@
             android:id="@+id/recyclerview1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:overScrollMode="never"/>
+            android:overScrollMode="never" />
+
+        <TextView
+            android:id="@+id/mTvLoadMore"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#F6F6F6"
+            android:gravity="center"
+            android:text="正在加载..."
+            android:textColor="@color/colorAccent"
+            android:translationY="-40dp"
+            android:visibility="invisible" />
     </com.ypx.refreshlayout.simple.qq.YPXQQRefreshView>
 
 </RelativeLayout>

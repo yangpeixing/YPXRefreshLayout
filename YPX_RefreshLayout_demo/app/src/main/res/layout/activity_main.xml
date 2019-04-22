@@ -47,4 +47,9 @@
             android:text="修改样式"
             android:visibility="gone" />
     </LinearLayout>
+
+    <com.ypx.jiehunle.ypx_bezierqqrefreshdemo.YPXTabIndicator.YPXTabIndicator
+        android:id="@+id/netEaseIndicator3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </LinearLayout>

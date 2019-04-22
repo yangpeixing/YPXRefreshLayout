@@ -10,37 +10,43 @@ import android.widget.Toast;
 
 import com.ypx.jiehunle.ypx_bezierqqrefreshdemo.R;
 
+import java.util.List;
+
 /**
  * Created by jiehunle on 17/1/17.
  */
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
     private Context context;
-    public  RecyclerViewAdapter(Context context){
-        this.context=context;
+    private List<String> mList;
+
+    public RecyclerViewAdapter(Context context, List<String> mList) {
+        this.context = context;
+        this.mList = mList;
 
     }
+
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         MyViewHolder holder = new MyViewHolder(LayoutInflater.from(
-               context).inflate(R.layout.item, parent,
+                context).inflate(R.layout.item, parent,
                 false));
         return holder;
     }
 
     @Override
-    public void onBindViewHolder(final MyViewHolder holder, int position) {
-        holder.tv.setText("这是第" + position + "个文本");
+    public void onBindViewHolder(final MyViewHolder holder, int pos) {
+        holder.tv.setText(String.format("这是第%s个文本", mList.get(pos)));
         holder.tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context,holder.tv.getText(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, holder.tv.getText(), Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return 50;
+        return mList.size();
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {

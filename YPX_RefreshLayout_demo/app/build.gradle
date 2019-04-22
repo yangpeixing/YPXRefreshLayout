@@ -29,6 +29,6 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:25.4.0'
     compile 'com.android.support:recyclerview-v7:25.4.0'
-    compile 'com.ypx.refreshlayout:refreshlayout:1.1.6'
+    compile 'com.ypx.refreshlayout:refreshlayout:1.1.7'
     //compile project(':refreshlayout')
 }
